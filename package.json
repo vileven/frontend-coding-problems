@@ -1,0 +1,27 @@
+{
+  "name": "frontend-coding-problems",
+  "version": "1.0.0",
+  "description": "Solving frontend coding problems from bigfrontend.dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vileven/frontend-coding-problems.git"
+  },
+  "keywords": [
+    "leetcode",
+    "algorithm"
+  ],
+  "author": "Sergei Volodin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vileven/frontend-coding-problems/issues"
+  },
+  "homepage": "https://github.com/vileven/frontend-coding-problems#readme",
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "prettier": "^2.6.1"
+  }
+}

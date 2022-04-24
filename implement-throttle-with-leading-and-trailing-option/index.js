@@ -1,10 +1,14 @@
-function throttle(func, wait) {
+function throttle(
+	func,
+	wait,
+	{leading, trailing} = {leading: true, trailing: true},
+) {
 	let timeoutId = null;
 	let lastArgs = null;
 	let lastContext = null;
 
 	const waiter = () => {
-		if (lastArgs) {
+		if (lastArgs && trailing) {
 			func.apply(lastContext, lastArgs);
 			lastArgs = null;
 			lastContext = null;
@@ -24,11 +28,15 @@ function throttle(func, wait) {
 			return;
 		}
 
-		func.apply(this, args);
+		// otherwise, if it has option `leading` should call function else just save args
+		if (leading) {
+			func.apply(this, args);
+		} else {
+			lastContext = this;
+			lastArgs = args;
+		}
 
 		// and starting throttle
 		timeoutId = setTimeout(waiter, wait);
 	};
 }
-
-module.exports = throttle;
